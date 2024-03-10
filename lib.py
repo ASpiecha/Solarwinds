@@ -1,6 +1,7 @@
 import csv
 from datetime import datetime, timedelta
 
+
 class HeaderError(Exception):
     pass
 
@@ -75,7 +76,6 @@ class Processor:
         self.data = data
         self.result = []
         self.cleanData()
-        self.compute()
 
     def cleanData(self):
         self.removeCentral()
@@ -161,6 +161,6 @@ class Processor:
 
 class Writer:
     def __init__(self, data):
-        with open("result", "w") as outputFile:
+        with open("result.txt", "w") as outputFile:
             for row in data:
                 outputFile.writelines(" ".join(row) + "\n")
